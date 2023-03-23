@@ -8,6 +8,7 @@ interface props {
 interface context {
   allPokemons: Pokemon[]
   globalPokemons: Pokemon[]
+  getPokemonByID: (id: string | undefined) => Promise<Pokemon>
   loading: boolean
 }
 
@@ -22,15 +23,13 @@ const PokemonProvider = ({ children }: props) => {
 
   const [allPokemons, setAllPokemons] = useState<Pokemon[]>([]);
   const [globalPokemons, setGlobalPokemons] = useState<Pokemon[]>([]);
-  // const [allspeciesByColour, setAllSpeciesByColour] = useState([])
-  // const [globalspeciesByColour, setGlobalSpeciesByColour] = useState([])
   const [offset, setOffset] = useState(0);
 
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState(false);
 
   // lLamar 50 pokemones a la API
-  const getAllPokemons = async (limit = 50) => {
+  const getAllPokemons = async (limit = 60) => {
     const baseURL = "https://pokeapi.co/api/v2/";
 
     const res = await fetch(
@@ -68,7 +67,7 @@ const PokemonProvider = ({ children }: props) => {
   };
 
   // Llamar a un pokemon por ID
-  const getPokemonByID = async (id: number) => {
+  const getPokemonByID = async (id: string | undefined): Promise<Pokemon> => {
     const baseURL = "https://pokeapi.co/api/v2/";
 
     const res = await fetch(`${baseURL}pokemon/${id}`);
@@ -88,6 +87,7 @@ const PokemonProvider = ({ children }: props) => {
     <PokemonContext.Provider value={{
       allPokemons,
       globalPokemons,
+      getPokemonByID,
       loading,
     }}>{children}</PokemonContext.Provider>
   );

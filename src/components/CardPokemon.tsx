@@ -9,8 +9,6 @@ interface props {
 
 export const CardPokemon = ({pokemon} : props) => {
 
-  console.log(colorsByType(pokemon.types[0].type.name))
-
   return (
     <Link to={`/pokemon/${pokemon.id}`} className="flex justify-center items-center">
       <div className=" w-full">
@@ -51,43 +49,12 @@ export const CardPokemon = ({pokemon} : props) => {
                 <div className="flex justify-between font-bold text-black">
                   <h2
                     className="line-clamp-1 text-2xl md:text-lg"
-                    title="New York"
                   >
                     {pokemon.name.charAt(0).toUpperCase() +
                       pokemon.name.slice(1)}
                   </h2>
                   <h2>#{pokemon.id}</h2>
                 </div>
-                <table className="text-black font-light">
-                  <tbody>
-                    <tr>
-                      <td>HP</td>
-                      <td>55</td>
-                    </tr>
-                    <tr>
-                      <td>Attack</td>
-                      <td>55</td>
-                    </tr>
-
-                    <tr>
-                      <td>Defense</td>
-                      <td>50</td>
-                    </tr>
-
-                    <tr>
-                      <td>Special Attack</td>
-                      <td>45</td>
-                    </tr>
-                    <tr>
-                      <td>Special Defense</td>
-                      <td>65</td>
-                    </tr>
-                    <tr>
-                      <td>Speed</td>
-                      <td>55</td>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
             </div>
           </span>
