@@ -12,6 +12,7 @@ export const Navbar = () => {
 		navigate('/search', {
 			state: form,
 		});
+    setForm('')
 	};
 
   return (
@@ -34,6 +35,8 @@ export const Navbar = () => {
             name="search"
             value={form}
             onChange={(e)=> setForm(e.target.value)}
+            required
+            autoComplete="off"
           />
           <button
             type="submit"
