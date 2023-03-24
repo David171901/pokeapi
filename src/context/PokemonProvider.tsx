@@ -10,6 +10,8 @@ interface context {
   globalPokemons: Pokemon[]
   getPokemonByID: (id: string | undefined) => Promise<Pokemon>
   loading: boolean
+  offset: number
+  setOffset: (value: number) => void
 }
 
 interface result {
@@ -89,6 +91,8 @@ const PokemonProvider = ({ children }: props) => {
       globalPokemons,
       getPokemonByID,
       loading,
+      offset,
+      setOffset,
     }}>{children}</PokemonContext.Provider>
   );
 };
