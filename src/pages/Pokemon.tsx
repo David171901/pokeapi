@@ -31,13 +31,13 @@ export const Pokemon = () => {
         <>
           <div >
             <p className="text-9xl text-[#323099] font-extrabold">
-              #{pokemon?.id}
+              #{pokemon!.id}
             </p>
             <div className="flex flex-col md:flex-row md:justify-between md:items-center">
               <div>
-                <h1 className="text-5xl font-bold uppercase">{pokemon?.name}</h1>
+                <h1 className="text-5xl font-bold uppercase">{pokemon!.name}</h1>
                 <div className="space-x-4 ">
-                  {pokemon?.types.map((type) => (
+                  {pokemon!.types.map((type) => (
                     <span 
                       key={type.type.name} 
                       className="uppercase rounded-lg px-2"
@@ -50,19 +50,19 @@ export const Pokemon = () => {
                 <div>
                   <div>
                     <p className="text-2xl md:text-lg font-semibold">Altura</p>
-                    <span className="font-thin">{pokemon?.height}</span>
+                    <span className="font-thin">{pokemon!.height}</span>
                   </div>
                   <div>
                     <p className="text-2xl md:text-lg font-semibold">Peso</p>
-                    <span className="font-thin">{pokemon?.weight}KG</span>
+                    <span className="font-thin">{pokemon!.weight}KG</span>
                   </div>
                 </div>
               </div>
 
               <div>
                 <img
-                  src={pokemon?.sprites.other["official-artwork"].front_default}
-                  alt={`Pokemon ${pokemon?.name}`}
+                  src={pokemon!.sprites.other["official-artwork"].front_default}
+                  alt={`Pokemon ${pokemon!.name}`}
                 />
               </div>
             </div>
@@ -73,44 +73,56 @@ export const Pokemon = () => {
             <div className="space-y-4">
               <div className="flex justify-between">
                 <span className="w-52 text-2xl md:text-lg font-thin">Hp</span>
-                <div className="w-10/12 bg-[#323099] rounded-full"></div>
+                <div className="w-10/12 bg-[#323099] rounded-full">
+                  <div className="h-full w-full bg-[#FFFF00] rounded-full" style={{width:  `${pokemon!.stats[0].base_stat > 100 ? 100: pokemon!.stats[0].base_stat}%`}}></div>
+                </div>
                 <span className="w-32 text-2xl md:text-lg font-thin text-center">
-                  {pokemon?.stats[0].base_stat}
+                  {pokemon!.stats[0].base_stat}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="w-52 text-2xl md:text-lg font-thin">Attack</span>
-                <div className="w-10/12 bg-[#323099] rounded-full"></div>
+                <div className="w-10/12 bg-[#323099] rounded-full">
+                  <div className="h-full w-full bg-[#FFFF00] rounded-full" style={{width:  `${pokemon!.stats[1].base_stat > 100 ? 100: pokemon!.stats[1].base_stat}%`}}></div>
+                </div>
                 <span className="w-32 text-2xl md:text-lg font-thin text-center">
-                  {pokemon?.stats[1].base_stat}
+                  {pokemon!.stats[1].base_stat}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="w-52 text-2xl md:text-lg font-thin">Defense</span>
-                <div className="w-10/12 bg-[#323099] rounded-full"></div>
+                <div className="w-10/12 bg-[#323099] rounded-full">
+                  <div className="h-full w-full bg-[#FFFF00] rounded-full" style={{width:  `${pokemon!.stats[2].base_stat > 100 ? 100: pokemon!.stats[2].base_stat}%`}}></div>
+                </div>
                 <span className="w-32 text-2xl md:text-lg font-thin text-center">
-                  {pokemon?.stats[2].base_stat}
+                  {pokemon!.stats[2].base_stat}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="w-52 text-2xl md:text-lg font-thin">Special Attack</span>
-                <div className="w-10/12 bg-[#323099] rounded-full"></div>
+                <div className="w-10/12 bg-[#323099] rounded-full">
+                  <div className="h-full w-full bg-[#FFFF00] rounded-full" style={{width:  `${pokemon!.stats[3].base_stat > 100 ? 100: pokemon!.stats[3].base_stat}%`}}></div>
+                </div>
                 <span className="w-32 text-2xl md:text-lg font-thin text-center">
-                  {pokemon?.stats[3].base_stat}
+                  {pokemon!.stats[3].base_stat}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="w-52 text-2xl md:text-lg font-thin">Special Defense</span>
-                <div className="w-10/12 bg-[#323099] rounded-full"></div>
+                <div className="w-10/12 bg-[#323099] rounded-full">
+                  <div className="h-full w-full bg-[#FFFF00] rounded-full" style={{width:  `${pokemon!.stats[4].base_stat > 100 ? 100: pokemon!.stats[4].base_stat}%`}}></div>
+                </div>
                 <span className="w-32 text-2xl md:text-lg font-thin text-center">
-                  {pokemon?.stats[4].base_stat}
+                  {pokemon!.stats[4].base_stat}
                 </span>
               </div>
               <div className="flex justify-between">
                 <span className="w-52 text-2xl md:text-lg font-thin">Speed</span>
-                <div className="w-10/12 bg-[#323099] rounded-full"></div>
+                <div className="w-10/12 bg-[#323099] rounded-full">
+                  <div className="h-full w-full bg-[#FFFF00] rounded-full" style={{width:  `${pokemon!.stats[5].base_stat > 100 ? 100: pokemon!.stats[5].base_stat}%`}}></div>
+                </div>
                 <span className="w-32 text-2xl md:text-lg font-thin text-center">
-                  {pokemon?.stats[5].base_stat}
+                  {pokemon!.stats[5].base_stat}
                 </span>
               </div>
             </div>

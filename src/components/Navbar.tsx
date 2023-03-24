@@ -1,7 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
+
+  const [form, setForm] = useState('')
+
+  const navigate = useNavigate();
+
+	const onSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		navigate('/search', {
+			state: form,
+		});
+	};
+
   return (
     <nav className="flex flex-col md:flex-row justify-between items-center py-4">
       <div>
@@ -14,11 +26,14 @@ export const Navbar = () => {
         </Link>
       </div>
       <div>
-        <form className="flex space-x-2">
+        <form className="flex space-x-2" onSubmit={onSearchSubmit}>
           <input
             className="border border-gray-300 h-11 focus:outline-none focus:ring-1 focus:ring-[#323099] transition duration-500 font-sans text-base text-gray-800 px-4 rounded-xl w-72 "
             placeholder="Pikachu"
             type="text"
+            name="search"
+            value={form}
+            onChange={(e)=> setForm(e.target.value)}
           />
           <button
             type="submit"

@@ -5,6 +5,7 @@ import { Home } from "./pages/Home";
 import { ErrorPage } from "./pages/ErrorPage";
 import { Pokemon } from "./pages/Pokemon";
 import { Layout } from "./layout/Layout";
+import { Search } from "./pages/Search";
 
 export const router = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
         { 
           index: true, 
           element: <Home /> 
+        },
+        {
+          path: "search",
+          element: <Search />,
         },
         {
           path: "pokemon/:id",
