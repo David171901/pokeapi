@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
-import usePokemon from "../hooks/usePokemon";
-import { Pokemon as PokemonInterface } from "../interfaces/pokemon";
-import { useNavigate, useParams } from "react-router-dom";
-import { colorsByType } from "../helper/colorsCards";
+import { useEffect, useState } from "react";
+// Components
 import { Loader } from "../components/Loader";
+// Libraries
+import { useNavigate, useParams } from "react-router-dom";
+// Custom Hooks
+import usePokemon from "../hooks/usePokemon";
+// Others
+import { Pokemon as PokemonInterface } from "../interfaces/pokemon";
+import { colorsByType } from "../helper/colorsCards";
 
 export const Pokemon = () => {
   const navigate = useNavigate();
@@ -16,7 +20,7 @@ export const Pokemon = () => {
   const { id } = useParams();
 
   const fetchPokemon = async (id: string | undefined) => {
-    const data = await getPokemonByID(id);
+    const data = await getPokemonByID(id!);
     setPokemon(data);
     setLoading(false);
   };
@@ -33,15 +37,15 @@ export const Pokemon = () => {
         <>
           <div>
             <div>
-              <div>
+              <div className="w-52">
                 <button
-                  className="text-white bg-[#323099] transition-all duration-200 ease-linear hover:bg-blue-800 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                  className="text-white bg-[#323099] transition-all duration-200 ease-linear hover:bg-blue-800 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center "
                   onClick={() => navigate(-1)}
                 >
                   Back
                 </button>
               </div>
-              <p className="text-9xl text-[#323099] font-extrabold">
+              <p className="text-9xl text-[#323099] font-extrabold mt-8">
                 #{pokemon!.id}
               </p>
             </div>

@@ -8,7 +8,7 @@ interface props {
 interface context {
   allPokemons: Pokemon[]
   globalPokemons: Pokemon[]
-  getPokemonByID: (id: string | undefined) => Promise<Pokemon>
+  getPokemonByID: (id: string) => Promise<Pokemon>
   loading: boolean
   offset: number
   setOffset: (value: number) => void
@@ -69,7 +69,7 @@ const PokemonProvider = ({ children }: props) => {
   };
 
   // Llamar a un pokemon por ID
-  const getPokemonByID = async (id: string | undefined): Promise<Pokemon> => {
+  const getPokemonByID = async (id: string): Promise<Pokemon> => {
     const baseURL = "https://pokeapi.co/api/v2/";
 
     const res = await fetch(`${baseURL}pokemon/${id}`);

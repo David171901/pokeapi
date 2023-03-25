@@ -1,8 +1,8 @@
-import { useContext} from 'react'
-import PokemonProvider from '../context/PokemonProvider'
+import { useContext } from "react";
+import PokemonProvider from "../context/PokemonProvider";
 
 const usePokemon = () => {
-    return useContext (PokemonProvider)
-}
+  return useContext(PokemonProvider);
+};
 
 export default usePokemon;
